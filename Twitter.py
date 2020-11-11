@@ -11,14 +11,14 @@ user=api.me()
 
 
 search = 'careca'
-numeroDeTweets = 100
+numeroDeTweets = 2000
 
 for tweet in tweepy.Cursor(api.search, search).items(numeroDeTweets):
     try:
         print('tweet Retuitado e favoritado')
         tweet.retweet()
         tweet.favorite()
-        time.sleep(600)
+        time.sleep(15)
     except tweepy.TweepError as e:
         print(e.reason)
     except StopIteration:
