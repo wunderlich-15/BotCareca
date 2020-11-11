@@ -1,9 +1,15 @@
 import tweepy
 import time
-import tokens
+import os
+from os import environ
 
-auth = tweepy.OAuthHandler(tokens.api_key,tokens.api_secret)
-auth.set_access_token(tokens.access_token,tokens.secret_token)
+api_key= environ['api_key']
+api_secret= environ['api_secret']
+access_token= environ['access_token']
+secret_token= environ['secret_token']
+
+auth = tweepy.OAuthHandler(api_key, api_secret)
+auth.set_access_token(access_token, secret_token)
 
 api=tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
